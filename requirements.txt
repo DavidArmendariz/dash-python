@@ -1,0 +1,6 @@
+firebase-admin
+dash
+dash-bootstrap-components
+pandas
+requests
+flask
