@@ -5,7 +5,7 @@ import json
 import plotly.graph_objs as go
 import pandas as pd
 
-cred = credentials.Certificate("credenciales.json")
+cred = credentials.Certificate("credentials.json")
 firebase_admin.initialize_app(cred)
 db = firestore.client()
 

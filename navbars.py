@@ -2,16 +2,10 @@ import dash_html_components as html
 import dash_bootstrap_components as dbc
 import dash_core_components as dcc
 import base64
-from config import CLIENT_LOGO, ZWIPPE_LOGO
+from config import CLIENT_LOGO, COMPANY_LOGO
 
-#####################################################################
-# Esto debe cambiar si se va a obtener la imagen de otro lado
 encoded_client_logo = base64.b64encode(open(CLIENT_LOGO, 'rb').read())
-encoded_zwippe_logo = base64.b64encode(open(ZWIPPE_LOGO, 'rb').read())
-
-
-#####################################################################
-
+encoded_company_LOGO = base64.b64encode(open(COMPANY_LOGO, 'rb').read())
 
 def navbar_dash():
     navbar_from_dashboard = dbc.Navbar(
@@ -24,18 +18,18 @@ def navbar_dash():
                     ],
                 ),
                 # Esto debe cambiar segun el cliente
-                href="https://www.malteriaplaza.com/",target="_blank"
+                href="https://www.myclient.com/",target="_blank"
             ),
             html.A(
                 dbc.Row(
                     [
-                        dbc.Col(html.Img(src="data:image/png;base64,{}".format(encoded_zwippe_logo.decode()),
+                        dbc.Col(html.Img(src="data:image/png;base64,{}".format(encoded_company_LOGO.decode()),
                                          height="80px")),
                     ],
                 ),
-                href="https://www.zwippe.com/",target="_blank"
+                href="https://www.mycompany.com/",target="_blank"
             ),
-            dbc.NavbarBrand("Dashboard NetZwippe"),
+            dbc.NavbarBrand("Dashboard"),
             html.Span(dcc.LogoutButton(logout_url='/logout'), className="ml-auto")
         ],
         color="dark",
@@ -51,14 +45,14 @@ def navbar_login():
                 # Use row and col to control vertical alignment of logo / brand
                 dbc.Row(
                     [
-                        dbc.Col(html.Img(src="data:image/png;base64,{}".format(encoded_zwippe_logo.decode()),
+                        dbc.Col(html.Img(src="data:image/png;base64,{}".format(encoded_company_LOGO.decode()),
                                          height="80px")),
-                        dbc.Col(dbc.NavbarBrand("Dashboard NetZwippe", className="ml-2")),
+                        dbc.Col(dbc.NavbarBrand("Dashboard", className="ml-2")),
                     ],
                     align="center",
                     no_gutters=True,
                 ),
-                href="https://www.zwippe.com/",
+                href="https://www.mycompany.com/",
             ),
             # dbc.NavbarToggler(id="navbar-toggler"),
         ],
